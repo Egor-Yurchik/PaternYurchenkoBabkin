@@ -1,6 +1,10 @@
-#include "car.h"
+#include "machine.h"
 
-Car::Car()
+Machine::Machine()
 {
 
+}
+
+string Machine::getName() {
+	return name;
 }
