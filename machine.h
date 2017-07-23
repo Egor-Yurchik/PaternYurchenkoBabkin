@@ -9,7 +9,8 @@ using namespace std;
 class Machine
 {
 public:
-    Machine();
+	Machine();
+	string getName();
 private:
     std::string name;
 };

@@ -1,4 +1,6 @@
 #include "garage.h"
+#include "machine.h"
+#include <cstring>
 
 Garage::Garage()
 {
@@ -15,17 +17,17 @@ Garage::Garage()
     return obj;
 }
 
-Garage::getMachine(int n)
+string Garage::getMachine(int n)
 {
-    if(n < v.length())
+    if(n < v.size())
         return v[n].getName();
     else
         return string("Null object");
 }
 
-Garage::setMachine(int a, int b)
+void Garage::setMachine(int a, int b)
 {
-    if(a < v.length && b < v.length)
+    if(a < v.size() && b < v.size())
     {
         Machine m();
         m = v[a];
