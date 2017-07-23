@@ -11,6 +11,7 @@ class Machine
 public:
 	Machine();
 	string getName();
+    string setName(string& name);
 private:
     std::string name;
 };

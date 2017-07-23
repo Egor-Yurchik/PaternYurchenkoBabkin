@@ -1,20 +1,26 @@
 #include "garage.h"
 #include "machine.h"
 #include <cstring>
+using namespace std;
 
-Garage::Garage()
+bool Garage::init = false;
+
+Garage& Garage::getInstance()
 {
-    if (obj == null)
+    static Garage instance;
+    if ( init  == false )
     {
-    Machine k();
-    string names[] = {"VAZ","Volga","Kamaz"};
-    for(int i = 1;i <= 20; i++)
-    {
-        k.setName(names[i % 3]);
-        v.push_back(k);
-    }
-    }
-    return obj;
+        init = true;
+        Machine k = Machine();
+        string names[] = {"VAZ","Volga","Kamaz"};
+        for(int i = 0;i < 20; i++)
+        {
+            k.setName( names[ i % 3 ] );
+            instance.v.push_back(k);
+        }
+        return instance;
+        }
+    return instance;
 }
 
 string Garage::getMachine(int n)
@@ -29,7 +35,7 @@ void Garage::setMachine(int a, int b)
 {
     if(a < v.size() && b < v.size())
     {
-        Machine m();
+        Machine m = Machine();
         m = v[a];
         v[a] = v[b];
         v[b] = m;
