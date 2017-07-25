@@ -9,9 +9,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    Garage myGarage;
+    Garage& myGarage = Garage::getInstance();
     int c = 0, b = 0;
-    myGarage.getMachine(3);
 
     cout << "Insert name machine number A :" << endl;
     cin >> c;
@@ -26,7 +25,7 @@ int main(int argc, char *argv[])
     cout << myGarage.getMachine(c) << endl; // prints !!!Hello World!!!
     cout << myGarage.getMachine(b) << endl;
 
-    Garage myGarageTestSingle;
+    Garage& myGarageTestSingle = Garage::getInstance();
     cout << "Test SingleTon the output objects of a new class that should be in an identical position with the objects of the last class" << endl;
     cout << myGarageTestSingle.getMachine(c) << endl; // prints !!!Hello World!!!
     cout << myGarageTestSingle.getMachine(b) << endl;
@@ -36,6 +35,5 @@ int main(int argc, char *argv[])
     }else{
     cout << "Error in working";
     }
-
     return a.exec();
 }
